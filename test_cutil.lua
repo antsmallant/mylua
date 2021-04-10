@@ -8,3 +8,5 @@ print(cutil_b.multi(10, 20))
 
 print(cutil.add(1, 2))
 print(cutil.multi(1, 2))
+
+print(minus(20,30))
