@@ -39,3 +39,6 @@ luac.out
 *.x86_64
 *.hex
 
+# projects
+c_call_lua
+test_extern

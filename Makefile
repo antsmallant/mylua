@@ -1,18 +1,22 @@
 .PHONY: clean all
 
-all: c_util.so c_call_lua
+CC?=gcc
 
-c_util.so:
-	$(CC) -fPIC -shared -o $@ cutil.c
+all: cutil.so c_call_lua test_extern testall
+
+cutil.so:
+	$(CC) cutil.c -fPIC -shared -o $@
 
 c_call_lua:
 	$(CC) c_call_lua.c -o $@ -llua -lm
 
-test_cutil: c_util.so
+test_cutil: cutil.so
 	lua test_cutil.lua
 
 test_extern:
 	$(CC) test_extern.c test_extern_main.c -o $@
 
+testall: test_cutil
+
 clean:
-	rm cutil.so c_call_lua test_extern
+	rm -f cutil.so c_call_lua test_extern
