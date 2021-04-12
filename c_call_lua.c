@@ -21,8 +21,8 @@ void test_add() {
 	lua_close(L);
 }
 
-void main() {
+int main() {
 	test_add();
 	printf("1111\n");
-	return;
+	return 0;
 }
