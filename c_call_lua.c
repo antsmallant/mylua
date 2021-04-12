@@ -6,7 +6,10 @@
 void test_add() {
 	lua_State *L = luaL_newstate();
 	luaL_openlibs(L);
+
 	int ret = luaL_dofile(L, "call_lua.lua");
+	printf("luaL_dofile ret:%d\n", ret);
+
 	lua_getfield(L, -1, "add");
 	lua_pushinteger(L, 5);
 	lua_pushinteger(L, 6);
@@ -15,9 +18,7 @@ void test_add() {
 	if (ret2 == 0)
 		printf("result:%d\n", (int)lua_tointeger(L, -1));
 
-	printf("lua_gettop():%d\n", lua_gettop(L));
 	lua_close(L);
-	printf("ret:%d\n", ret);
 }
 
 void main() {

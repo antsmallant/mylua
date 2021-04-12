@@ -41,4 +41,4 @@ luac.out
 
 # projects
 c_call_lua
-test_extern
+extern_test
